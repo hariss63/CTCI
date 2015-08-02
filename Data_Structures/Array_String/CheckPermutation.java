@@ -1,3 +1,9 @@
+/*
+ * Had to update this, because the HashSet approach is actually incorrect.
+ * To see this, consider the case where the character sets of the two strings
+ * are the same, but different letters occur a different number of times.
+ */
+
 import java.util.HashSet;
 
 public class CheckPermutation
@@ -14,24 +20,29 @@ public class CheckPermutation
   {
     int a_len = a.length();
     int b_len = b.length();
+    char[] a_arr = a.toCharArray();
+    char[] b_arr = b.toCharArray();
 
     if (a_len != b_len)
     {
       return false;
     }
+    int[] letters = new int[128];
 
-    HashSet<Character> seen = new HashSet<Character>();
-    for (int i = 0; i < a_len; i++)
+    for (char c: a_arr)
     {
-      seen.add(a.charAt(i));
+      letters[c]++;
     }
-    for (int i = 0; i < b_len; i++)
+
+    for (char c: b_arr)
     {
-      if (!seen.contains(b.charAt(i)))
+      letters[c]--;
+      if (letters[c] < 0)
       {
         return false;
       }
     }
+
     return true;
   }
 }
