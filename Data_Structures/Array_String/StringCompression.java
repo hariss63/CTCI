@@ -6,8 +6,9 @@ public class StringCompression
     solve(str);		
   }
  
-  public static String solve(String str)
+  public static String solve(String s)
   {
+    String str = s.toLowerCase();
     if (newLength(str) >= str.length())
     {
       return str;
