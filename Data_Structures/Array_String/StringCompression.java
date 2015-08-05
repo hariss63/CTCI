@@ -9,11 +9,12 @@ public class StringCompression
   public static String solve(String s)
   {
     String str = s.toLowerCase();
-    if (newLength(str) >= str.length())
+    int newLen = newLength(str);
+    if (newLen >= str.length())
     {
       return str;
     }
-    StringBuilder sb = new StringBuilder();
+    StringBuilder sb = new StringBuilder(newLen); // final capacity
     int streak = 1;
     for (int i = 1; i < str.length(); i++)
     {
@@ -34,18 +35,19 @@ public class StringCompression
   }
   private static int newLength(String str)
   {
-    if (str.length() <= 2)
+    int compressedLength = 0;
+    int countConsecutive = 0;
+    for (int i = 0; i < str.length(); i++)
     {
-      return 2;
-    }
-    int streakCount = 1;
-    for (int i = 1; i < str.length(); i++)
-    {
-      if (str.charAt(i) != str.charAt(i-1))
+      countConsecutive++;
+      
+      /* If next character is different than current, increase the length */
+      if (i + 1 >= str.length() || str.charAt(i) != str.charAt(i + 1))
       {
-        streakCount++;
+        compressedLength += 1 + String.valueOf(countConsecutive).length();
+        countConsecutive = 0;
       }
+      return compressedLength;
     }
-    return 2 * streakCount;
   }
 }
