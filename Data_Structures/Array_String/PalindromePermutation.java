@@ -1,36 +1,64 @@
-/*
- * TODO: Strip Whitespaces
- * TODO: lowercase string
- */
 public class PalindromePermutation
 {
   public static void main(String[] args)
   {
-    System.out.println(solve(args[0]));
+    System.out.println(solve("args[0]"));
   }
 
   public static boolean solve(String str)
   {
-    int[] char_count = new int[128]; // assuming ASCII
-    boolean foundOdd = false;
-    boolean isEven = str.length() % 2 == 0;
-    for (int i = 0; i < str.length(); i++)
+    int bitVector = createBitVector(str);
+    return bitVector == 0 || checkExactlyOneBitSet(bitVector);
+  }
+  /* Create a bit vector for the string. For each letter with value i, toggle the ith bit. */
+  static int createBitVector(String str)
+  {
+    int bitVector = 0;
+    char[] cArr = str.toCharArray();
+    for (char c: cArr)
     {
-      int c = (int) (str.charAt(i));
-      char_count[c]++;
+      int x = getCharNumber(c);
+      bitVector = toggle(bitVector, x);
     }
-    for (int num: char_count)
+    return bitVector;
+  }
+  /* Map each character to a number. a -> 0, b ->, etc.
+   * Case insensitive. Non-letter characters map to -1 */
+  static int getCharNumber(char c)
+  {
+    if (Character.isUpperCase(c))
     {
-      boolean numEven = num % 2 == 0;
-      if (!numEven && (isEven || foundOdd))
-      {
-        return false;
-      }
-      else if (!numEven)
-      {
-        foundOdd = true;
-      }
+      return c - 'A';
     }
-    return true;
+    else if (Character.isLowerCase(c))
+    {
+      return c - 'a';
+    }
+    return -1;
+  }
+  
+  /* Toggle the ith bit in the integer */
+  static int toggle(int bitVector, int index)
+  {
+    if (index < 0)
+    {
+      return bitVector;
+    }
+    
+    int mask = 1 << index;
+    if ((bitVector & mask) == 0)
+    {
+      bitVector |= mask;
+    }
+    else
+    {
+      bitVector &= ~mask;
+    }
+    return bitVector;
+  }
+  
+  static boolean checkExactlyOneBitSet(int bitVector)
+  {
+    return (bitVector & (bitVector - 1)) == 0;
   }
 }
