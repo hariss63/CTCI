@@ -3,9 +3,9 @@ class ZeroMatrix
   public static void main(String[] args)
   {
     int[][] input = { {3, 5, 0, 4},
-      {2, 1, 9, 7},
-      {3, 2, 1, 0},
-    {8, 5, 0, 4} };
+                      {2, 1, 9, 7},
+                      {3, 2, 1, 0},
+                      {8, 5, 0, 4} };
     solve(input);
   }
   static void printMatrix(int[][] matrix)
