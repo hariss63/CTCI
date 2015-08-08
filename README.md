@@ -5,6 +5,7 @@ Exercises from the book [Cracking the Coding Interview, 6th edition](http://www.
 ##Index
 * [Data Structures](#data-structures)
   * [Arrays and Strings](#arrays-and-strings)
+  * [Linked Lists](#linked-lists)
   
 ## Data Structures
 ### Arrays and Strings
@@ -25,3 +26,10 @@ Exercises from the book [Cracking the Coding Interview, 6th edition](http://www.
 **[1.8 Zero Matrix:](https://github.com/munyari/CTCI/blob/master/Data_Structures/Array_String/ZeroMatrix.java)** Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column are set to 0.
 
 **[1.9 String Rotation:](https://github.com/munyari/CTCI/blob/master/Data_Structures/Array_String/StringRotation.java)** Assume you have a method `isSubstring` which checks if one word is a substring of another. Given two strings, `s1` and `s2`, write code to check if `s2` is a rotation of `s1` using only once call to `isSubstring` (e.g., "`waterbottle`" is a rotation of "`erbottlewat`").
+
+### Linked Lists
+**[2.1 Remove Dups:](https://github.com/munyari/CTCI/blob/master/Data_Structures/Linked_List/RemoveDuplicates.java)** Write code to remove duplicates from an unsorted linked list.
+FOLLOW UP
+How would you solve this problem if a temporary buffer is not allowed?
+
+**[2.2 Return Kth to Last:](https://github.com/munyari/CTCI/blob/master/Data_Structures/Linked_List/KthToLast.java)** Implement an algorithm to find the kth to last element of a singly linked list.
