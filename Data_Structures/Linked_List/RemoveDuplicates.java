@@ -1,8 +1,8 @@
 import java.util.HashSet;
 
-public class RemoveDuplicates 
+public class RemoveDuplicates
 {
-  private class Node
+  private static class Node
   {
     Node next = null;
     int data;
@@ -22,30 +22,6 @@ public class RemoveDuplicates
       }
       n.next = end;
     }
-
-    Node delete(Node head, int d)
-    {
-      Node n = head;
-
-      if (n.data == d)
-      {
-        return head.next;
-      }
-
-      while (n.next != null)
-      {
-        if (n.next.data == d)
-        {
-          n.next = n.next.next;
-          return head; // head didn't change 
-        }
-        n = n.next;
-      }
-      return head;
-    }
-    void print()
-    {
-    }
   }
 
   public static void main(String[] args)
@@ -55,6 +31,9 @@ public class RemoveDuplicates
     linked.add(3);
     linked.add(2);
     linked.add(7);
+    printList(linked);
+    removeDuplicates(linked);
+    printList(linked);
   }
 
   public static void removeDuplicates(Node head)
@@ -65,11 +44,27 @@ public class RemoveDuplicates
     while (curr.next != null)
     {
       seen.add(curr.data);
-      if seen.contains(curr.next)
+      if (seen.contains(curr.next.data))
       {
-        curr.next = curr.next.next;
+        curr.next = deleteNode(curr.next);
       }
       curr = curr.next;
     }
+  }
+
+  private static void printList(Node head)
+  {
+    Node n = head;
+    while (n.next != null)
+    {
+      System.out.printf("%d -> ", n.data);
+      n = n.next;
+    }
+    System.out.println(n.data);
+  }
+
+  private static Node deleteNode(Node head)
+  {
+    return head.next;
   }
 }
