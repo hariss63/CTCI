@@ -11,7 +11,7 @@ Exercises from the book [Cracking the Coding Interview, 6th edition](http://www.
 ### Arrays and Strings
 **[1.1 Is Unique:](https://github.com/munyari/CTCI/blob/master/Data_Structures/Array_String/UniqueString.java)** Implement an algorithm to determine if a string has all unique characters. What if you cannot use additional data structures?
 
-**[1.2 Check Permutation:](https://github.com/munyari/CTCI/blob/master/Data_Structures/Array_String/CheckPermutation.java)** Given two strings, write a method to decide if one is a permuation of the other.
+**[1.2 Check Permutation:](https://github.com/munyari/CTCI/blob/master/Data_Structures/Array_String/CheckPermutation.java)** Given two strings, write a method to decide if one is a permutation of the other.
 
 **[1.3 URLify:](https://github.com/munyari/CTCI/blob/master/Data_Structures/Array_String/URLify.java)** Write a method to replace all spaces in a string with '%20'. You may assume that the string has sufficient space at the end to hold additional characters, and that you are given the "true" length of the string. (Note: If implementing in Java, please use a character array so that you can perform this operation in place.)
 
@@ -35,3 +35,6 @@ How would you solve this problem if a temporary buffer is not allowed?
 **[2.2 Return Kth to Last:](https://github.com/munyari/CTCI/blob/master/Data_Structures/Linked_List/KthToLast.java)** Implement an algorithm to find the kth to last element of a singly linked list.
 
 **[2.3 Delete Middle Node:](https://github.com/munyari/CTCI/blob/master/Data_Structures/Linked_List/DeleteMiddleNode.java)** Implement an algorithm to delete a node in the middle of a singly linked list, given only access to that node.
+
+
+**[2.4 Partition:](https://github.com/munyari/CTCI/blob/master/Data_Structures/Linked_List/Partition.java)** Write code to partition a linked list around a value x, such that all nodes less than x come before all nodes greater than or equal to x. If x is contained within the list, the values of x only need to be after the elements less than x.
