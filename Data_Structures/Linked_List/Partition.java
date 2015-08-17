@@ -32,8 +32,7 @@ public class Partition
     linked.add(2);
     linked.add(7);
     printList(linked);
-    Node del = linked.next.next;
-    deleteNode(del);
+    linked = partition(linked, 3);
     printList(linked);
   }
 
@@ -49,14 +48,46 @@ public class Partition
     System.out.println(n.data);
   }
 
-  private static void deleteNode(Node head, int val)
+  private static Node partition(Node head, int val)
   {
-    if (head == null || head.next == null) {
-      head = null;
+    Node left = null;
+    Node right = null;
+    while (head != null)
+    {
+      if (head.data < val)
+      {
+        if (left == null)
+        {
+          left = new Node(head.data);
+        }
+        else
+        {
+          left.add(head.data);
+        }
+      }
+      else
+      {
+        if (right == null)
+        {
+          right = new Node(head.data);
+        }
+        else
+        {
+          right.add(head.data);
+        }
+      } 
+      head = head.next;
     }
-    else {
-      head.data = head.next.data;
-      head.next = head.next.next;
+    concat(left, right);
+    return left;
+  }
+
+  private static void concat(Node n1, Node n2)
+  {
+    Node curr = n1;
+    while (curr.next != null) {
+      curr = curr.next;
     }
+    curr.next = n2;
   }
 }
